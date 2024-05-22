@@ -40,7 +40,7 @@ def query_folder(
 
     relevant_docs = folder_index.index.similarity_search(query, k=5)
     result = chain(
-        {"input_documents": relevant_docs, "сұрақ": query}, return_only_outputs=True
+        {"input_documents": relevant_docs, "question": query}, return_only_outputs=True
     )
     sources = relevant_docs
 
