@@ -6,41 +6,23 @@ def faq():
     st.markdown(
         """
 # FAQ
-## How does KnowledgeGPT work?
-When you upload a document, it will be divided into smaller chunks 
-and stored in a special type of database called a vector index 
-that allows for semantic search and retrieval.
+## PedagogGPT қалай жұмыс істейді?
+Сіз құжатты жүктеген кезде, ол кішірек кесектерге бөлінеді және семантикалық іздеу мен іздестіру үшін арнайы деректер базасы деп аталатын векторлық индексте сақталады.
 
-When you ask a question, KnowledgeGPT will search through the
-document chunks and find the most relevant ones using the vector index.
-Then, it will use GPT3 to generate a final answer.
+Сіз сұрақ қойған кезде, PedagogGPT құжат кесектерін іздестіреді және векторлық индексті пайдалана отырып ең өзектілерін табады. Содан кейін GPT-3 қолдану арқылы соңғы жауапты жасайды.
 
-## Is my data safe?
-Yes, your data is safe. KnowledgeGPT does not store your documents or
-questions. All uploaded data is deleted after you close the browser tab.
+## Менің деректерім қауіпсіз бе?
+Иә, сіздің деректеріңіз қауіпсіз. PedagogGPT сіздің құжаттарыңызды немесе сұрақтарыңызды сақтамайды. Барлық жүктелген деректер сіз браузер қойындысын жапқаннан кейін жойылады.
 
-## Why does it take so long to index my document?
-If you are using a free OpenAI API key, it will take a while to index
-your document. This is because the free API key has strict [rate limits](https://platform.openai.com/docs/guides/rate-limits/overview).
-To speed up the indexing process, you can use a paid API key.
+## Неліктен құжатты индекстеу ұзаққа созылады?
+Егер сіз тегін OpenAI API кілтін қолдансаңыз, құжатты индекстеу біраз уақыт алады. Себебі тегін API кілтінде қатаң [шектеулер](https://platform.openai.com/docs/guides/rate-limits/overview) бар. Индекстеу процесін жылдамдату үшін ақылы API кілтін пайдалануға болады.
 
-## What do the numbers mean under each source?
-For a PDF document, you will see a citation number like this: 3-12. 
-The first number is the page number and the second number is 
-the chunk number on that page. For DOCS and TXT documents, 
-the first number is set to 1 and the second number is the chunk number.
+## Әрбір дереккөздің астындағы сандар нені білдіреді?
+PDF құжаты үшін сіз осындай сілтеме нөмірін көресіз: 3-12. Бірінші сан - бет нөмірі, ал екінші сан - сол беттегі кесек нөмірі. DOCS және TXT құжаттары үшін бірінші сан 1 деп белгіленіп, екінші сан кесек нөмірі болып табылады.
 
-## Are the answers 100% accurate?
-No, the answers are not 100% accurate. KnowledgeGPT uses GPT-3 to generate
-answers. GPT-3 is a powerful language model, but it sometimes makes mistakes 
-and is prone to hallucinations. Also, KnowledgeGPT uses semantic search
-to find the most relevant chunks and does not see the entire document,
-which means that it may not be able to find all the relevant information and
-may not be able to answer all questions (especially summary-type questions
-or questions that require a lot of context from the document).
+## Жауаптар 100% дәл ме?
+Жоқ, жауаптар 100% дәл емес. PedagogGPT жауаптарды жасау үшін GPT-3 қолданады. GPT-3 - қуатты тіл үлгісі, бірақ кейде қателіктер жібереді және қиялға бейім. Сондай-ақ, PedagogGPT ең өзекті кесектерді табу үшін семантикалық іздеуді қолданады және бүкіл құжатты көрмейді, бұл барлық маңызды ақпаратты табуға және барлық сұрақтарға жауап беруге мүмкіндік бермейді (әсіресе құжаттың көп контекстін талап ететін сұрақтар немесе қорытынды түріндегі сұрақтар).
 
-But for most use cases, KnowledgeGPT is very accurate and can answer
-most questions. Always check with the sources to make sure that the answers
-are correct.
+Бірақ көпшілік жағдайлар үшін PedagogGPT өте дәл және көптеген сұрақтарға жауап бере алады. Жауаптардың дұрыс екендігіне көз жеткізу үшін әрқашан дереккөздермен тексеріңіз.
 """
     )

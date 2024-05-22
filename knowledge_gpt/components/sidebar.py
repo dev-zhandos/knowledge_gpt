@@ -10,16 +10,16 @@ load_dotenv()
 def sidebar():
     with st.sidebar:
         st.markdown(
-            "## How to use\n"
-            "1. Enter your [OpenAI API key](https://platform.openai.com/account/api-keys) below🔑\n"  # noqa: E501
-            "2. Upload a pdf, docx, or txt file📄\n"
-            "3. Ask a question about the document💬\n"
+            "## Қалай қолдану керек\n"
+            "1. Төменде өзіңіздің [OpenAI API кілтіңізді] [OpenAI API key](https://platform.openai.com/account/api-keys) енгізіңіз🔑\n"  # noqa: E501
+            "2. PDF, DOCX немесе TXT файлды жүктеңіз📄\n"
+            "3. Құжат туралы сұрақ қойыңыз💬\n"
         )
         api_key_input = st.text_input(
-            "OpenAI API Key",
+            "OpenAI API кілтіңіз",
             type="password",
-            placeholder="Paste your OpenAI API key here (sk-...)",
-            help="You can get your API key from https://platform.openai.com/account/api-keys.",  # noqa: E501
+            placeholder="OpenAI API кілтіңізді мұнда қойыңыз (sk-...)",
+            help="API кілтіңізді https://platform.openai.com/account/api-keys сайтынан ала аласыз.",  # noqa: E501
             value=os.environ.get("OPENAI_API_KEY", None)
             or st.session_state.get("OPENAI_API_KEY", ""),
         )
@@ -27,17 +27,15 @@ def sidebar():
         st.session_state["OPENAI_API_KEY"] = api_key_input
 
         st.markdown("---")
-        st.markdown("# About")
+        st.markdown("# Бағдарлама туралы")
         st.markdown(
-            "📖KnowledgeGPT allows you to ask questions about your "
-            "documents and get accurate answers with instant citations. "
+            "📖PedagogGPT сізге құжаттарыңыз туралы сұрақ қоюға "
+            "және бірден сілтемелермен нақты жауап алуға мүмкіндік береді. "
         )
+        st.markdown("## Найман Биболдың диссертациялық жұмысы")
         st.markdown(
-            "This tool is a work in progress. "
-            "You can contribute to the project on [GitHub](https://github.com/mmz-001/knowledge_gpt) "  # noqa: E501
-            "with your feedback and suggestions💡"
+            "Жұмыс заңмен қорғалған. Ескертусіз көшіру заңмен қудаланады. "  # noqa: E501
         )
-        st.markdown("Made by [mmz_001](https://twitter.com/mm_sasmitha)")
         st.markdown("---")
 
         faq()
