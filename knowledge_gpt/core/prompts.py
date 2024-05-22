@@ -2,29 +2,31 @@
 from langchain.prompts import PromptTemplate
 
 ## Use a shorter template to reduce the number of tokens in the prompt
-template = """Create a final answer to the given questions using the provided document excerpts (given in no particular order) as sources. ALWAYS include a "SOURCES" section in your answer citing only the minimal set of sources needed to answer the question. If you are unable to answer the question, simply state that you do not have enough information to answer the question and leave the SOURCES section empty. Use only the provided documents and do not attempt to fabricate an answer.
+template = """ChatGPT
+
+Берілген сұрақтарға құжат үзінділерін (берілген ретсіз түрде) пайдаланып, қорытынды жауап жасаңыз. Жауабыңызға қажет ең аз дереккөздерді ғана көрсетіп, міндетті түрде "ДЕРЕККӨЗДЕР" бөлімін қосыңыз. Егер сұраққа жауап беру үшін жеткілікті ақпарат жоқ болса, сұраққа жауап беру үшін жеткілікті ақпарат жоқ екенін жай ғана айтыңыз және "ДЕРЕККӨЗДЕР" бөлімін бос қалдырыңыз. Тек берілген құжаттарды пайдаланыңыз және жауапты ойдан шығаруға тырыспаңыз.
 
 ---------
 
-QUESTION: What  is the purpose of ARPA-H?
+Сұрақ: ARPA-H-тың мақсаты қандай?
 =========
-Content: More support for patients and families. \n\nTo get there, I call on Congress to fund ARPA-H, the Advanced Research Projects Agency for Health. \n\nIt's based on DARPA—the Defense Department project that led to the Internet, GPS, and so much more.  \n\nARPA-H will have a singular purpose—to drive breakthroughs in cancer, Alzheimer's, diabetes, and more.
-SOURCES: 1-32
-Content: While we're at it, let's make sure every American can get the health care they need. \n\nWe've already made historic investments in health care. \n\nWe've made it easier for Americans to get the care they need, when they need it. \n\nWe've made it easier for Americans to get the treatments they need, when they need them. \n\nWe've made it easier for Americans to get the medications they need, when they need them.
-SOURCES: 1-33
-Content: The V.A. is pioneering new ways of linking toxic exposures to disease, already helping  veterans get the care they deserve. \n\nWe need to extend that same care to all Americans. \n\nThat's why I'm calling on Congress to pass legislation that would establish a national registry of toxic exposures, and provide health care and financial assistance to those affected.
-SOURCES: 1-30
+Мазмұны: Науқастар мен отбасыларға көбірек қолдау көрсету.\n\nОсы мақсатқа жету үшін, мен Конгресске Денсаулық сақтау саласындағы озық зерттеу жобалары агенттігін (ARPA-H) қаржыландыруды сұраймын.\n\nБұл Интернет, GPS және тағы басқа көптеген жетістіктерге қол жеткізген Қорғаныс министрлігінің жобасы DARPA-ға негізделген.\n\nARPA-H бірегей мақсатқа ие болады — бұл қатерлі ісік, Альцгеймер, қант диабеті және тағы басқа аурулар саласындағы серпінді жаңалықтарды алға жылжыту.
+ДЕРЕККӨЗДЕР: 1-32
+Мазмұны: Осы ретте, әрбір америкалықтың қажетті медициналық көмекті алуын қамтамасыз етейік.\n\nБіз қазірдің өзінде денсаулық сақтау саласына тарихи инвестициялар жасадық.\n\nАмерикалықтардың қажетті көмекті алуын жеңілдеттік, олар қажет болған кезде.\n\nАмерикалықтардың қажетті емдерді алуын жеңілдеттік, олар қажет болған кезде.\n\nАмерикалықтардың қажетті дәрі-дәрмектерді алуын жеңілдеттік, олар қажет болған кезде.
+ДЕРЕККӨЗДЕР: 1-33
+Мазмұны: Ветерандар басқармасы (V.A.) ауруларды уытты әсерлермен байланыстырудың жаңа жолдарын іздестіруде, бұл қазірдің өзінде ардагерлерге тиісті көмек алуға көмектесуде.\n\nБіз осы көмекті барлық америкалықтарға кеңейтуіміз керек.\n\nСондықтан мен Конгрессті уытты әсерлердің ұлттық тіркелімін құруды және зардап шеккендерге медициналық көмек пен қаржылық көмек көрсетуді қамтамасыз ететін заң қабылдауға шақырамын.
+ДЕРЕККӨЗДЕР: 1-30
 =========
-FINAL ANSWER: The purpose of ARPA-H is to drive breakthroughs in cancer, Alzheimer's, diabetes, and more.
-SOURCES: 1-32
+ҚОРЫТЫНДЫ ЖАУАП: ARPA-H-тың мақсаты - рак, Альцгеймер, қант диабеті және тағы басқа аурулар саласындағы серпінді жаңалықтарды алға жылжыту.
+ДЕРЕККӨЗДЕР: 1-32
 
 ---------
 
-QUESTION: {question}
+СҰРАҚ: {question}
 =========
 {summaries}
 =========
-FINAL ANSWER:"""
+ҚОРЫТЫНДЫ ЖАУАП:"""
 
 STUFF_PROMPT = PromptTemplate(
     template=template, input_variables=["summaries", "question"]
