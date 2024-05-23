@@ -47,7 +47,7 @@ def query_folder(
     if not return_all:
         sources = get_sources(result["output_text"], folder_index)
 
-    answer = result["output_text"].split("ДЕРЕККӨЗДЕР: ")[0]
+    answer = result["output_text"].split("SOURCES: ")[0]
 
     return AnswerWithSources(answer=answer, sources=sources)
 
@@ -55,7 +55,7 @@ def query_folder(
 def get_sources(answer: str, folder_index: FolderIndex) -> List[Document]:
     """Retrieves the docs that were used to answer the question the generated answer."""
 
-    source_keys = [s for s in answer.split("ДЕРЕККӨЗДЕР: ")[-1].split(", ")]
+    source_keys = [s for s in answer.split("SOURCES: ")[-1].split(", ")]
 
     source_docs = []
     for file in folder_index.files:
